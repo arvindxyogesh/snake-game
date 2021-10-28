@@ -105,7 +105,7 @@ while True:
     if snake.distance(food)<20:
         score+=1
         scoring.clear()
-        scoring.write("Score :",align="center",font=("courier",24,"bold"))
+        scoring.write(f"Score :{score}",align="center",font=("courier",24,"bold"))
         x= random.randint(-290,270)
         y=random.randint(-240,240)
 
@@ -134,17 +134,17 @@ while True:
 
     if snake.xcor()>280 or snake.xcor()<-300 or snake.ycor()>240 or snake.ycor()<-240:
         time.sleep(1)
-        screen.clear(1)
-        screen.turtle.bgcolor('turquoise')
+        screen.clear()
+        screen.bgcolor('turquoise')
         scoring.goto(0,0)
-        scoring.turtle.write(f"GAME OVER \n Your score is {score}",font=("courier",30,"bold"))
+        scoring.write(f"GAME OVER \n Your score is {score}",font=("courier",30,"bold"))
     
-    for food in old_fruit:
-        if food.distance(snake)<20:
+    for fruit in old_fruit:
+        if fruit.distance(snake)<20:
             time.sleep(1)
             screen.clear()
-            screen.turtle.bgcolor('turquoise')
-            scoring.goto(0,0)
+            screen.bgcolor('turquoise')
+            scoring.goto(-100,0)
             scoring.write(f"GAME OVER \n Your score is {score}",font=("courier",30,"bold"))
 
 
